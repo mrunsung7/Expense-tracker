@@ -29,7 +29,7 @@ A full-stack personal expense tracking tool built with **React.js** and **Flask*
 
 ## 📸 UI Preview
 
-> _Add screenshots or a link to a hosted demo if deployed (e.g. Netlify + Render)_
+<img width="1435" alt="Screenshot 2025-04-10 at 3 54 34 PM" src="https://github.com/user-attachments/assets/e2a62ba8-01f5-45fc-9082-9d35a6061b89" />
 
 ---
 
