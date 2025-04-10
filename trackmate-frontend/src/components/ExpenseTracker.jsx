@@ -22,6 +22,8 @@ const COLORS = [
   "#e17055",
 ];
 
+const BASE_URL = "https://expense-tracker-mxeu.onrender.com";
+
 export default function ExpenseTracker() {
   const [expenses, setExpenses] = useState([]);
   const [breakdown, setBreakdown] = useState([]);
@@ -42,7 +44,7 @@ export default function ExpenseTracker() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/users");
+      const res = await axios.get(`${BASE_URL}/users`);
       setUsers(res.data);
     } catch (err) {
       console.error("Users error:", err);
@@ -51,7 +53,7 @@ export default function ExpenseTracker() {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/categories");
+      const res = await axios.get(`${BASE_URL}/categories`);
       setCategories(res.data);
     } catch (err) {
       console.error("Categories error:", err);
@@ -62,7 +64,7 @@ export default function ExpenseTracker() {
     const cleanName = newUser.trim();
     if (!cleanName) return alert("Enter a user name!");
     try {
-      await axios.post("http://localhost:5050/create_user", {
+      await axios.post(`${BASE_URL}/create_user`, {
         name: cleanName,
         email: "placeholder@email.com",
       });
@@ -84,7 +86,7 @@ export default function ExpenseTracker() {
     );
     if (!confirm) return;
     try {
-      await axios.delete(`http://localhost:5050/delete_user/${userId}`);
+      await axios.delete(`${BASE_URL}/delete_user/${userId}`);
       setUserId("");
       setExpenses([]);
       setBreakdown([]);
@@ -98,9 +100,7 @@ export default function ExpenseTracker() {
   const fetchExpenses = async () => {
     if (!userId) return;
     try {
-      const res = await axios.get(
-        `http://localhost:5050/report/${userId}/${month}`
-      );
+      const res = await axios.get(`${BASE_URL}/report/${userId}/${month}`);
       setExpenses([res.data]);
       fetchBreakdown();
       fetchHistory();
@@ -115,7 +115,7 @@ export default function ExpenseTracker() {
   const addExpense = async () => {
     if (!userId || !categoryId || !amount) return alert("Fill all fields");
     try {
-      await axios.post("http://localhost:5050/add_expense", {
+      await axios.post(`${BASE_URL}/add_expense`, {
         amount: parseFloat(amount),
         user_id: parseInt(userId),
         category_id: parseInt(categoryId),
@@ -131,7 +131,7 @@ export default function ExpenseTracker() {
   const setMonthlyBudget = async () => {
     if (!userId || !budget) return alert("Fill all fields");
     try {
-      await axios.post("http://localhost:5050/set_budget", {
+      await axios.post(`${BASE_URL}/set_budget`, {
         amount: parseFloat(budget),
         user_id: parseInt(userId),
         month,
@@ -145,9 +145,7 @@ export default function ExpenseTracker() {
 
   const fetchBreakdown = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5050/breakdown/${userId}/${month}`
-      );
+      const res = await axios.get(`${BASE_URL}/breakdown/${userId}/${month}`);
       const data = Object.entries(res.data).map(([name, value]) => ({
         name,
         value,
@@ -160,9 +158,7 @@ export default function ExpenseTracker() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5050/expenses/${userId}/${month}`
-      );
+      const res = await axios.get(`${BASE_URL}/expenses/${userId}/${month}`);
       setHistory(res.data);
     } catch (err) {
       console.error("History error:", err);
