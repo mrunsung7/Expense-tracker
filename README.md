@@ -103,7 +103,8 @@ Expense-tracker/
 
 ```
 ### 📷 UI Preview
-<img width="1435" alt="Screenshot" src="https://github.com/user-attachments/assets/e2a62ba8-01f5-45fc-9082-9d35a6061b89" />
+<img width="1440" alt="Screenshot 2025-04-10 at 5 09 11 PM" src="https://github.com/user-attachments/assets/9e5dd110-3ce0-4a1e-925c-7c3a48b23a61" />
+
 
 ### ✨ Author
 👤 Ashwin Kumar
