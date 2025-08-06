@@ -1,4 +1,4 @@
-# 💼 Expense Tracker – L7 Informatics Internship Assignment
+# 💼 Expense Tracker 
 
 > 📌 **Problem Statement**  
 Develop a Python Application to help users track their expenses and savings goals.  
