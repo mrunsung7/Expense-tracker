@@ -116,7 +116,6 @@ This project was developed as part of an internship assignment and is intended f
 
 ### 🙌 Acknowledgements
 ```
->L7 Informatics
 >Flask
 >React
 >Recharts
